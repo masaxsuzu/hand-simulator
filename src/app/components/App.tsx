@@ -5,7 +5,7 @@ import * as styles from "./App.scss";
 const ROUTER_BASENAME =
   process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test"
     ? "/"
-    : "/mini-react-app";
+    : "/hand-simulator";
 
 console.log(`process.env.NODE_ENV=${process.env.NODE_ENV}`);
 console.log(`ROUTER_BASENAME=${ROUTER_BASENAME}`);

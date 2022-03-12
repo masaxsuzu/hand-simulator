@@ -1,8 +1,8 @@
 {
-  "name": "mini-react-app",
+  "name": "hand-simulator",
   "version": "1.0.0",
   "license": "MIT",
-  "homepage": "https://masaxsuzu.github.io/mini-react-app",
+  "homepage": "https://masaxsuzu.github.io/hand-simulator",
   "devDependencies": {
     "@parcel/transformer-image": "^2.2.0",
     "@parcel/transformer-sass": "^2.3.2",
@@ -24,7 +24,7 @@
   "scripts": {
     "start": "yarn parcel src/index.html",
     "build": "yarn parcel build src/index.html src/404.html",
-    "build:gh-pages": "yarn parcel build src/index.html src/404.html  --public-url /mini-react-app --dist-dir ./dist",
+    "build:gh-pages": "yarn parcel build src/index.html src/404.html  --public-url /hand-simulator --dist-dir ./dist",
     "test": "jest --env=jsdom",
     "fmt": "prettier --write src",
     "lint": "prettier --check src"
