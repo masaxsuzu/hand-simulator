@@ -12,7 +12,7 @@ export interface State {
 }
 const initialState: State = {
   numberToDraw: 5,
-  condition: `'カード1' <= 3`,
+  condition: `"カード1" <= 3`,
   cards: [
     {
       name: "カード1",
