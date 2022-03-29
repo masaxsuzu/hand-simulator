@@ -25,7 +25,7 @@ interface EditNumberToDraw extends Action {
 
 interface EditCardsAction extends Action {
   type: typeof ActionTypes.editDeckCards;
-  cards: Card[];
+  csv: string;
 }
 interface EditDeckNumberAction extends Action {
   type: typeof ActionTypes.editDeckNumber;

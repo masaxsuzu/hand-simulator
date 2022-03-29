@@ -17,36 +17,11 @@ export const editNumberToDraw = (n: number): SimulatorActionTypes => {
 };
 
 export const editCards = (csv: string): SimulatorActionTypes => {
-  let x: string[][] = parse(csv, {
-    columns: false,
-    skip_empty_lines: true,
-  });
   return {
     type: ActionTypes.editDeckCards,
-    cards: mapToCards(x),
+    csv: csv
   };
 };
-
-function mapToCards(csv: string[][]): Card[] {
-  let m = new Map<string, number>();
-  for (const row of csv) {
-    if (row.length < 2) {
-      continue;
-    }
-    let name = row[0];
-    let number = parseInt(row[1]);
-    if (isNaN(number) || !isFinite(number)) {
-      continue;
-    }
-    let n = m.get(name) ?? 0;
-    if (m.has(row[0])) {
-      m.set(row[0], n + number);
-    } else {
-      m.set(row[0], number);
-    }
-  }
-  return Array.from(m).map((v, i) => ({ name: v[0], number: v[1] }));
-}
 
 export const editDeckNumber = (n: number): SimulatorActionTypes => {
   return {
