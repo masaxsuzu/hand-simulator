@@ -64,6 +64,13 @@ export class HandSimulator {
 
   private toMap(pattern: string[]) {
     var m = new Map<string, number>();
+    for (const card of this.deck.cards) {
+      let n = m.get(card);
+      if (n === undefined) {
+        m.set(card, 0);
+        n = 0;
+      }
+    }
     for (const p of pattern) {
       let n = m.get(p);
       if (n === undefined) {
