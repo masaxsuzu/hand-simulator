@@ -76,7 +76,6 @@ export const simulatorReducer = (
   }
 };
 
-
 function parseCsv(csv: string) {
   try {
     let x: string[][] = parse(csv, {
@@ -84,8 +83,7 @@ function parseCsv(csv: string) {
       skip_empty_lines: true,
     });
     return mapToCards(x);
-  }
-  catch(e) {
+  } catch (e) {
     console.log(e);
     return [];
   }

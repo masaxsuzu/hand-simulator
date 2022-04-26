@@ -9,14 +9,14 @@ test("init deck", () => {
   expect(deck.cards).toStrictEqual(["x", "y", "y", "", ""]);
 });
 
-test("shuffle deck n = 3", () => {
+test("getAllCombinations deck n = 3", () => {
   let cards = [
     { name: "x", number: 1 },
     { name: "y", number: 1 },
     { name: "z", number: 1 },
   ];
   let deck = new Deck(3, cards);
-  let got = Array.from(deck.shuffle(2));
+  let got = Array.from(deck.getAllCombinations(2));
   expect(got).toStrictEqual([
     ["x", "y"],
     ["x", "z"],
@@ -24,8 +24,26 @@ test("shuffle deck n = 3", () => {
   ]);
 });
 
-test("shuffle deck n = 40", () => {
+test("getAllCombinations deck n = 40", () => {
   let deck = new Deck(40, []);
-  let got = Array.from(deck.shuffle(5));
+  let got = Array.from(deck.getAllCombinations(5));
   expect(got.length).toBe(658008);
+});
+
+test("getAllCombinations deck n = 40 even if shuffled", () => {
+  let deck = new Deck(40, []);
+  deck.shuffle();
+  let got = Array.from(deck.getAllCombinations(5));
+  expect(got.length).toBe(658008);
+});
+
+test("draw deck", () => {
+  let cards = [
+    { name: "x", number: 1 },
+    { name: "y", number: 2 },
+  ];
+  let deck = new Deck(5, cards);
+  let got = [...deck.draw(1), ...deck.draw(3)];
+
+  expect(got).toStrictEqual(["x", "y", "y", ""]);
 });

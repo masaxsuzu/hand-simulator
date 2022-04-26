@@ -1,8 +1,10 @@
 import { Card } from "./Card";
 
 export class Deck {
+  private current: number;
   public cards: string[];
   constructor(n: number, cards: Card[]) {
+    this.current = 0;
     this.cards = [];
     let x =
       cards.length > 0 ? cards.map((x) => x.number).reduce((a, b) => a + b) : 0;
@@ -20,8 +22,33 @@ export class Deck {
     }
   }
 
-  public shuffle(n: number) {
+  public getAllCombinations(n: number) {
     return combinations(this.cards, n);
+  }
+
+  public shuffle() {
+    let arr = this.cards;
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    this.cards = arr;
+    this.current = 0;
+  }
+  public draw(n: number): string[] {
+    let list: string[] = [];
+    const cards = Array.from(
+      this.cards.map((v, i) => i).filter((i) => i >= this.current)
+    );
+    for (let index = 0; index < cards.length; index++) {
+      if (index < n) {
+        list.push(this.cards[this.current + index]);
+      } else {
+        this.current += index;
+        break;
+      }
+    }
+    return list;
   }
 }
 

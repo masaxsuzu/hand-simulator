@@ -19,7 +19,7 @@ export const editNumberToDraw = (n: number): SimulatorActionTypes => {
 export const editCards = (csv: string): SimulatorActionTypes => {
   return {
     type: ActionTypes.editDeckCards,
-    csv: csv
+    csv: csv,
   };
 };
 
