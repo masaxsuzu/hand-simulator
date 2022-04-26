@@ -12,7 +12,7 @@ export const editCondition = (condition: string): SimulatorActionTypes => {
 export const editNumberToDraw = (n: number): SimulatorActionTypes => {
   return {
     type: ActionTypes.editNumberToDraw,
-    number: n,
+    number: isNaN(n) || !isFinite(n) ? 0 : n,
   };
 };
 
