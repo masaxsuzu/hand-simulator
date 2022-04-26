@@ -109,16 +109,6 @@ const HomeComponent = (props: {
       <Stack {...columnProps}>
         <TextField
           placeholder=""
-          value={csvFormat}
-          validateOnFocusOut={true}
-          onNotifyValidationResult={onCardsValidation}
-          onChange={onCardsChange}
-          label="カードリスト"
-          multiline
-          autoAdjustHeight
-        />
-        <TextField
-          placeholder=""
           value={props.totalCardCount}
           onChange={onTotalCardNumberChange}
           label="デッキ総数"
@@ -129,6 +119,16 @@ const HomeComponent = (props: {
           value={props.numberToDraw}
           onChange={onCardNumberToDrawChange}
           label="初手枚数"
+          autoAdjustHeight
+        />
+        <TextField
+          placeholder=""
+          value={csvFormat}
+          validateOnFocusOut={true}
+          onNotifyValidationResult={onCardsValidation}
+          onChange={onCardsChange}
+          label="カードリスト"
+          multiline
           autoAdjustHeight
         />
         <TextField
