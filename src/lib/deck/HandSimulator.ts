@@ -7,7 +7,11 @@ export class HandSimulator {
 
   public compute(init: number, query: string): number {
     let expr = parse(query);
-    if (init > 40 || this.deck.cards.includes("金謙")) {
+    if (
+      init > 6 ||
+      this.deck.cards.length > 40 ||
+      this.deck.cards.includes("金謙")
+    ) {
       return this.simulate(init, expr);
     } else {
       let patterns = this.deck.getAllCombinations(init);
