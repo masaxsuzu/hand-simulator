@@ -8,7 +8,7 @@ export class HandSimulator {
   public compute(init: number, query: string): number {
     let expr = parse(query);
     if (
-      init > 6 ||
+      init > 5 ||
       this.deck.cards.length > 40 ||
       this.deck.cards.includes("金謙")
     ) {
